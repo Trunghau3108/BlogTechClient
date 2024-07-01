@@ -6,6 +6,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { IconsModule } from '@progress/kendo-angular-icons';
 import { searchIcon,homeIcon,myspaceIcon,thumbUpOutlineIcon } from '@progress/kendo-svg-icons';
+import { Router, RouterModule } from "@angular/router";
 @Component({
   selector: 'app-home-global',
   standalone: true,
@@ -15,7 +16,8 @@ import { searchIcon,homeIcon,myspaceIcon,thumbUpOutlineIcon } from '@progress/ke
     InputsModule,
     DropDownsModule,
     ButtonsModule,
-    IconsModule],
+    IconsModule,
+    RouterModule],
   templateUrl: './home-global.component.html',
   styleUrl: './home-global.component.scss'
 })

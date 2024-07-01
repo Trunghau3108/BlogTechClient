@@ -10,4 +10,4 @@ import { BtLoginRoutingModule } from './bt-login-routing.module';
     BtLoginRoutingModule,
   ]
 })
-export class BdLoginModule { }
+export class BtLoginModule { }

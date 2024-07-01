@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserLoginComponent } from '../bt-login/pages/user-login/user-login.component';
+import { BlogListComponent } from './pages/blog-list/blog-list.component';
 
 const routes: Routes = [
-  
+
+  { path: "Blog", component: BlogListComponent, },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BdHomeRoutingModule { }
+export class BtHomeRoutingModule { }
