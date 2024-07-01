@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from '../bt-login/pages/user-login/user-login.component';
 
 const routes: Routes = [
-  { path: "login", component: UserLoginComponent, title: "Login" }
+  
 ];
 
 @NgModule({

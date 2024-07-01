@@ -1,10 +1,90 @@
 <div class="home-global">
+    <!-- header -->
     <div class="header">
         <app-header></app-header>
     </div>
+    <!-- body -->
     <div class="body">
+        <!--region search -->
         <div class="block-searchBlog">
-            
+            <div class="title">
+                Find Nearby Blogs <span>Celebrity.</span>
+            </div>
+            <div class="description">
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend lobortis semper.</p> 
+            </div>
+            <div class="group-filter">
+                <div class="item item1">
+                    <kendo-textbox placeholder="Search Blogs Keywords...">
+                        <ng-template kendoTextBoxSuffixTemplate>
+                            <kendo-svg-icon [icon]="icons.searchIcon"></kendo-svg-icon>
+                          </ng-template>
+                    </kendo-textbox>
+                </div>
+                <div class="item item2">
+                   <kendo-dropdownlist [data]="data" textField="name" valueField="code" [defaultItem]="{code:null,name:'Select Name'}"></kendo-dropdownlist>
+                </div>
+                <div class="item item3">
+                    <kendo-dropdownlist [data]="data" textField="name" valueField="code" [defaultItem]="{code:null,name:'All Categories'}"></kendo-dropdownlist>
+                </div>
+                <div class="item item4">
+                    <button kendoButton [svgIcon]="icons.searchIcon">SEARCH BLOGS</button>
+                </div>
+            </div>
+            <div class="trending-keyword">
+               <span>Trending Blogs Keywords: </span>
+               [array]
+             </div>
+
+             <div class="popular-blogs">
+                    <div class="item">
+                        <div class="sub-item">
+                            <div class="icon">
+                                <kendo-svg-icon [icon]="icons.home"></kendo-svg-icon>
+                            </div>
+                            <div class="data">
+                                <span class="number">18,955</span>
+                                <p>Live Blogs Posted</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sub-item">
+                            <div class="icon">
+                                <kendo-svg-icon [icon]="icons.myspace"></kendo-svg-icon>
+                            </div>
+                            <div class="data">
+                                <span class="number">11,088</span>
+                                <p>Live Blogs Posted</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sub-item">
+                            <div class="icon">
+                                <kendo-svg-icon [icon]="icons.thumb"></kendo-svg-icon>
+                            </div>
+                            <div class="data">
+                                <span class="number">10,758</span>
+                                <p>Live Blogs Posted</p>
+                            </div>
+
+                        </div>
+                    </div>
+             </div>
         </div>
+        <!-- end region -->
+
+        <!-- region Blogs -->
+        <div class="block-blogs">
+           <h1>blog</h1> 
+        </div>
+          <!-- end region -->
     </div>
+    <!-- footer -->
+     <footer>
+        <app-footer></app-footer>
+     </footer>
 </div>

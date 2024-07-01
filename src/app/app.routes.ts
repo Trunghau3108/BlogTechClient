@@ -1,5 +1,6 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeGlobalComponent } from './bt-app/bt-home/pages/home-global/home-global.component';
+import { ModuleWithProviders } from '@angular/core';
 
 export const routes: Routes = [
     { path: "", component: HomeGlobalComponent, },
