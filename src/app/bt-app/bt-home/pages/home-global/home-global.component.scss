@@ -1,0 +1,15 @@
+::ng-deep{
+    .home-global{
+        display: flex;
+        flex-direction: column;
+        .header{
+
+        }
+        .body{
+            .block-searchBlog{
+                height: 200px;
+                background-color: #505358;
+            }
+        }
+    }
+}

@@ -1,0 +1,150 @@
+::ng-deep{
+    .user-control {
+      margin: 50px 0px;
+      display: flex;
+      justify-content: center;
+          .form-action{
+            box-shadow: 1px 2px 5px rgba(12, 12, 12, 0.3);
+            padding: 30px;
+            width: 500px;
+            .user-form{
+              display: flex;
+              flex-direction: column;
+              gap: 30px;
+              .title{
+                font-size: 20px;
+                font-weight: 700;
+                align-items: center;
+                text-align: center;
+                color: #363D45;
+                p{
+                  font-size: 15px;
+                  color: #9F9C99;
+                  font-weight: 500;
+                  span{
+                    color: #ff8c23;
+                    cursor: pointer;
+                  }
+                }
+              }
+              .form{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .end-forgot{
+                  text-align: center;
+                  span{
+                    color: #ff8c23;
+                    cursor: pointer;
+                  }
+                }
+                .form-item{
+                  .k-textbox  {
+                    width: 500px;
+                    height: 50px;
+                    border-radius: 5px;
+                  }
+                }
+                .k-button{
+                  width: 500px;
+                  height: 50px;
+                  border-radius: 5px;
+                  background-color: #ff8c23;
+                  .k-button-text{
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: white;
+                  }
+                }
+              }
+              .login-form,.register-form{
+                .item-radio{
+                  color: #919593;
+                  font-weight: 600;
+                  display: flex;
+                  justify-content: space-between;
+                  .radio-remember{
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    p{
+                      span{
+                        color: #ff8c23;
+                        cursor: pointer;
+                      }
+                    }
+                    .k-radio{
+                      border-color: #919593;
+                      height: 20px;
+                      width: 20px;
+                      &:checked{
+                        border-color: #ff8c23;
+                        background-color: #ff8c23;
+                      }
+                    }
+                  }
+                  .forgot-pw{
+                    cursor: pointer;
+                  }
+                 
+                }
+              }
+            }
+  
+            .social{
+              padding-bottom: 10px;
+              .line{
+                border-bottom: 1px solid #D1D2D2;
+                height: 0;
+                margin: 40px 0;
+                .text{
+                position: relative;
+                display: inline-block;
+                height: 20px;
+                background-color: #E8E8E8;
+                top: -15px;
+                left: 176px;
+                border-radius: 10px;
+                padding: 5px 10px; 
+                z-index: 1;
+               }
+              }
+              .social-icon{
+                .group-button{
+                  display: flex;
+                  justify-content: space-between;
+                  gap: 10px;
+                  .k-button{
+                    width: 200px;
+                    height: 60px;
+                    border-radius: 5px;
+                    color: white;
+                    &:first-child{
+                      background-color: #E44E3B;
+                    }
+                    &:nth-child(2){
+                      background-color: #3C5996;
+                    }
+                    &:last-child{
+                      box-shadow: 0px 2px 5px rgba(12, 12, 12, 0.3);
+                      background-color: white;
+                      color: black;
+                    }
+                  }
+                }
+                .options{
+                  padding-top: 30px;
+                  p{
+                    color: #A0A0A0;
+                    b{
+                      cursor: pointer;
+                      color: white;
+                      font-weight: 700;
+                    }
+                  }
+                }
+              }
+            }
+          }
+      }        
+}

@@ -1,0 +1,29 @@
+<div class="header-cpn">
+  <div class="item">
+
+    <div class="menu-item">
+      <div class="logo">
+        <img src="assets/img/logo/logo-header.png" alt="logo" routerLink="/">
+        <div class="headerName" routerLink="/">Blogtech</div>
+      </div>
+        <div class="item-action">
+          <kendo-menu [items]="items">
+              <ng-template kendoMenuItemLinkTemplate let-item="item" let-index="index">
+                <a [kendoMenuItemLink]="index" [routerLink]="item.path">
+                  {{ item.title }}
+                  <span
+                    *ngIf="item.items && item.items.length"
+                    [kendoMenuExpandArrow]="index"
+                  ></span>
+                </a>
+              </ng-template>
+            </kendo-menu>
+      </div>
+    </div>
+    <div class="log-res">
+      <button kendoButton routerLink="/login">Sign In</button>
+      <!-- <button kendoButton routerLink="/register">Register</button>
+      <button kendoButton routerLink="/forgotpassword">Forgot</button> -->
+    </div>
+  </div>
+</div>

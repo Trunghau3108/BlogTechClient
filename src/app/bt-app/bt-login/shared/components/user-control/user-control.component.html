@@ -1,0 +1,89 @@
+<div class="user-control">
+<div class="form-action">
+    <div class="user-form" *ngIf="isRegisterForm">
+      <div class="title">Create Your New Account!
+        <br>
+        <p>Have an Account? <span routerLink="/login">Sign In</span> </p>
+      </div>
+      <form class="form register-form">
+        <div class="form-item item1">
+          <kendo-textbox  name="name" id="namedk" placeholder="Name" [(ngModel)]="registerForm.fullName"></kendo-textbox>
+        </div>
+        <div class="form-item item2">
+          <kendo-textbox   name="mail" id="email" placeholder="Email Address" [(ngModel)]="registerForm.email"></kendo-textbox>
+        </div>
+        <div class="form-item item3">
+          <kendo-textbox  type="password" name="pw"  id="password" placeholder="Password" [(ngModel)]="registerForm.password"></kendo-textbox>
+        </div>
+        <div class="form-item item4">
+          <kendo-textbox  type="password" name="pw"  id="password" placeholder="Confirm Password" [(ngModel)]="cofirmPassword"></kendo-textbox>
+        </div>
+        <div class="form-item item-radio">
+          <div class="radio-remember">
+            <input kendoRadioButton type="radio" >
+            <p>I Have Read and Agree to the <span>Terms & Conditions</span> </p>
+          </div>
+        </div>
+        
+          <button kendoButton   class="btn btn-primary">Create An Account</button>
+
+      </form>
+  </div>
+
+  <div class="user-form" *ngIf="isLoginForm">
+    <div class="title">Welcome Back Sign in to Continue
+    <br>
+    <p>Don't have an Account? <span routerLink="/register">Register</span> </p>
+    </div>
+      <form class="form login-form">
+        <div class="form-item item1">
+          <kendo-textbox  name="namedn"  id="username" placeholder="Email Address" [(ngModel)]="loginForm.email"> </kendo-textbox>
+        </div>
+        <div class="form-item item2">
+          <kendo-textbox  type="password" name="pw" placeholder="Password"  id="password" [(ngModel)]="loginForm.password"> </kendo-textbox>
+          <!-- <span class="forgot">Forgot Password ?</span> -->
+        </div>
+        <div class="form-item item-radio">
+        <div class="radio-remember">
+          <input kendoRadioButton type="radio">
+          <span>Remember Me</span>
+        </div>
+        <div class="forgot-pw" routerLink="/forgotpassword">
+          Forgot Password?
+        </div>
+          <!-- <span class="forgot">Forgot Password ?</span> -->
+        </div>
+        <button kendoButton   class="btn btn-primary">Log In</button>
+      </form>
+  </div>
+
+  <div class="user-form" *ngIf="isForgotForm">
+    <div class="title">Forgot Your Password?
+      <br>
+      <p>Enter your email address below and we'll send you email with password </p>
+      </div>
+
+      <form class="form forgot-form">
+        <div class="form-item item1">
+          <kendo-textbox  name="namedn"  id="username" placeholder="Enter Your Email" [(ngModel)]="loginForm.email"> </kendo-textbox>
+        </div>
+        <button kendoButton class="btn btn-primary">Send Recovery Email</button>
+
+        <div class="end-forgot" routerLink="/login">Forget It, <span>Send me Back</span> to The Sign In</div>
+      </form>
+  </div>
+
+  <div class="social" *ngIf="isLoginForm">
+    <div class="line">
+      <span class="text">Or Continue With</span>
+    </div>
+    <div class="social-icon"> 
+      <div class="group-button">
+        <button kendoButton [imageUrl]="'assets/img/icon/icon-google.svg'" >Google+</button>
+        <button kendoButton [imageUrl]="'assets/img/icon/icon-facebook.svg'" >Facebook</button>
+        <button kendoButton [imageUrl]="'assets/img/icon/icon-apple.svg'">Apple</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
