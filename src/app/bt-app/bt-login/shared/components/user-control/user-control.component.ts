@@ -6,6 +6,8 @@ import { ButtonModule } from '@progress/kendo-angular-buttons';
 import { Router } from '@angular/router';
 import { LoginApiService } from '../../services/login-api.service';
 import { RouterModule } from '@angular/router';
+import { DTOUser } from '../../dto/DTOUser.dto';
+import { Ps_UtilObjectService } from '../../../../../bt-lib/utilities/utility.object';
 
 @Component({
   selector: 'app-user-control',
@@ -31,36 +33,71 @@ export class UserControlComponent {
   ngOnInit(){
   }
 
+  onLogin(){
+    if(!Ps_UtilObjectService.hasValueString(this.user.email)){
+      alert("Bạn chưa nhập vào Email Address")
+    }else if(!Ps_UtilObjectService.hasValueString(this.user.password)){
+      alert("Bạn chưa nhập vào Password")
+    }else{
+      this.APILogin(this.user)
+    }
+  }
+
+  onRegister(){
+    if(!Ps_UtilObjectService.hasValueString(this.user.fullName)){
+      alert("Bạn chưa nhập vào Name")
+    }else if(!Ps_UtilObjectService.hasValueString(this.user.email)){
+      alert("Bạn chưa nhập vào Email Address")
+    }else if(!Ps_UtilObjectService.hasValueString(this.user.password)){
+      alert("Bạn chưa nhập vào Password")
+    }else if(!Ps_UtilObjectService.hasValueString(this.confirmPassword)){
+      alert("Bạn chưa nhập vào Confirm Password")
+    }else if(this.user.password !== this.confirmPassword){
+      alert("Password và ConfirmPass khác nhau !!!")
+    }else{
+      this.APIRegister(this.user)
+    }
+  }
  
 
-  cofirmPassword: string = ''
-  registerForm = {
-    email: '',
-    password: '',
-    fullName: ''
-  };
+  confirmPassword: string = ''
+  user = new DTOUser();
 
-  loginForm = {
-    email: '',
-    password: ''
-  };
+  APIRegister(dto:DTOUser) {
+    this.apiLoginService.Register(dto).subscribe((response: any) => {
+      if(Ps_UtilObjectService.hasValue(response) && response === "Ok"){
+        this.APILogin(dto);
+      }
+    }, (error: any) => {  
+      console.error(error);
+      if(Ps_UtilObjectService.hasListValue(error.error.errors.InvalidEmail)){
+        alert(error.message + `:  ${error.error.errors.InvalidEmail}` )
+      }
+      else if(Ps_UtilObjectService.hasListValue(error.error.errors.DuplicateUserName)){
+        alert(error.message + `:  ${error.error.errors.DuplicateUserName}` )
+      }
+    });
+  }
 
-  register() {
-    this.apiLoginService.Register(this.registerForm).subscribe((response: any) => {
-      console.log(response);
+
+  APILogin(dto:DTOUser) {
+    this.apiLoginService.Login(dto).subscribe((response: any) => {
+      if(Ps_UtilObjectService.hasValue(response)){
+        this.APIGetUserDetails(response);
+      }
     }, (error: any) => {
       console.error(error);
     });
   }
 
-  login() {
-    this.apiLoginService.Login(this.loginForm).subscribe((response: any) => {
-      console.log(response);
+  APIGetUserDetails(dto:any) {
+    this.apiLoginService.GetUserDetails(dto).subscribe((response: any) => {
+      if(Ps_UtilObjectService.hasValue(response)){
+       localStorage.setItem("user",JSON.stringify(response));
+       this.router.navigate(['/'])
+      }
     }, (error: any) => {
       console.error(error);
     });
-  }
-  showLoginFrom(){
-    this.isLoginForm = !this.isLoginForm
   }
 }

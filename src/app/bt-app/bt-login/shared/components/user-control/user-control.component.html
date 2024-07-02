@@ -7,16 +7,16 @@
       </div>
       <form class="form register-form">
         <div class="form-item item1">
-          <kendo-textbox  name="name" id="namedk" placeholder="Name" [(ngModel)]="registerForm.fullName"></kendo-textbox>
+          <kendo-textbox  name="name" id="namedk" placeholder="Name" [(ngModel)]="user.fullName"></kendo-textbox>
         </div>
         <div class="form-item item2">
-          <kendo-textbox   name="mail" id="email" placeholder="Email Address" [(ngModel)]="registerForm.email"></kendo-textbox>
+          <kendo-textbox   name="mail" id="email" placeholder="Email Address" [(ngModel)]="user.email"></kendo-textbox>
         </div>
         <div class="form-item item3">
-          <kendo-textbox  type="password" name="pw"  id="password" placeholder="Password" [(ngModel)]="registerForm.password"></kendo-textbox>
+          <kendo-textbox  type="password" name="pw"  id="password" placeholder="Password" [(ngModel)]="user.password"></kendo-textbox>
         </div>
         <div class="form-item item4">
-          <kendo-textbox  type="password" name="pw"  id="password" placeholder="Confirm Password" [(ngModel)]="cofirmPassword"></kendo-textbox>
+          <kendo-textbox  type="password" name="pw"  id="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword"></kendo-textbox>
         </div>
         <div class="form-item item-radio">
           <div class="radio-remember">
@@ -25,7 +25,7 @@
           </div>
         </div>
         
-          <button kendoButton   class="btn btn-primary">Create An Account</button>
+          <button kendoButton   class="btn btn-primary" (click)="onRegister()">Create An Account</button>
 
       </form>
   </div>
@@ -37,10 +37,10 @@
     </div>
       <form class="form login-form">
         <div class="form-item item1">
-          <kendo-textbox  name="namedn"  id="username" placeholder="Email Address" [(ngModel)]="loginForm.email"> </kendo-textbox>
+          <kendo-textbox  name="namedn"  id="username" placeholder="Email Address" [(ngModel)]="user.email"> </kendo-textbox>
         </div>
         <div class="form-item item2">
-          <kendo-textbox  type="password" name="pw" placeholder="Password"  id="password" [(ngModel)]="loginForm.password"> </kendo-textbox>
+          <kendo-textbox  type="password" name="pw" placeholder="Password"  id="password" [(ngModel)]="user.password"> </kendo-textbox>
           <!-- <span class="forgot">Forgot Password ?</span> -->
         </div>
         <div class="form-item item-radio">
@@ -53,7 +53,7 @@
         </div>
           <!-- <span class="forgot">Forgot Password ?</span> -->
         </div>
-        <button kendoButton   class="btn btn-primary">Log In</button>
+        <button kendoButton   class="btn btn-primary" (click)="onLogin()">Log In</button>
       </form>
   </div>
 
@@ -65,7 +65,7 @@
 
       <form class="form forgot-form">
         <div class="form-item item1">
-          <kendo-textbox  name="namedn"  id="username" placeholder="Enter Your Email" [(ngModel)]="loginForm.email"> </kendo-textbox>
+          <kendo-textbox  name="namedn"  id="username" placeholder="Enter Your Email" [(ngModel)]="user.email"> </kendo-textbox>
         </div>
         <button kendoButton class="btn btn-primary">Send Recovery Email</button>
 

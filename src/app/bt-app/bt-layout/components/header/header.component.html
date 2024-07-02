@@ -2,9 +2,9 @@
   <div class="item">
 
     <div class="menu-item">
-      <div class="logo">
-        <img src="assets/img/logo/logo-header.png" alt="logo" routerLink="/">
-        <div class="headerName" routerLink="/">Blogtech</div>
+      <div class="logo" routerLink="/">
+        <img src="assets/img/logo/logo-header.png" alt="logo">
+        <div class="headerName">Blogtech</div>
       </div>
         <div class="item-action">
           <kendo-menu [items]="items">
@@ -20,10 +20,15 @@
             </kendo-menu>
       </div>
     </div>
-    <div class="log-res">
+    <div class="log-res" *ngIf="!user">
       <button kendoButton routerLink="/login">Sign In</button>
       <!-- <button kendoButton routerLink="/register">Register</button>
       <button kendoButton routerLink="/forgotpassword">Forgot</button> -->
+    </div>
+
+    <div class="user-default" *ngIf="user && user!.userID > 0">
+     <div class="name">{{user.fullName ? 'Xin chào ' + user.fullName : "" }}</div>
+     <button kendoButton (click)="logOut()">{{user.userID > 0 ? 'Đăng xuất ': "" }}</button>
     </div>
   </div>
 </div>

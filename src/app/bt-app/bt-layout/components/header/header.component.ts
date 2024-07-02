@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject,PLATFORM_ID } from '@angular/core';
 import { MenusModule } from '@progress/kendo-angular-menu';
 import { Router, RouterModule } from "@angular/router";
 import { NgIf } from '@angular/common';
 import { ButtonModule } from '@progress/kendo-angular-buttons';
+import { DTOUser } from '../../../bt-login/shared/dto/DTOUser.dto';
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -28,8 +30,28 @@ export class HeaderComponent {
 //   },
 // ];
 
-constructor(private router: Router) {
+
+constructor(private router: Router,
+  @Inject(PLATFORM_ID) private platformId: Object
+) {
   this.items = this.mapItems(router.config);
+}
+
+ngOnInit(){
+  this.getUserLocal();
+}
+
+user = new DTOUser();
+getUserLocal(){
+  if (isPlatformBrowser(this.platformId)) {
+    var userLS = localStorage.getItem('user');
+    this.user = userLS ? JSON.parse(userLS) : null;
+  }
+}
+
+logOut(){
+  localStorage.removeItem("user");
+  this.ngOnInit();
 }
 
 // convert the routes to menu items.
