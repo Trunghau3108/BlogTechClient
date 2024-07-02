@@ -37,6 +37,7 @@ private mapItems(routes: any[], path?: string): any[] {
   return routes.map((item) => {
     // console.log(item)
     const result: any = {
+      //lấy tittle từ app.routers
       title: item.title,
       path: (path ? `${path}/` : "") + item.path,
     };
