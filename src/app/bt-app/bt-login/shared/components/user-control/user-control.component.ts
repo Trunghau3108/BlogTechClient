@@ -127,7 +127,7 @@ export class UserControlComponent {
     }, (error: any) => {
       this.isLoading = false
       console.error(error);
-      alert(error.message + `:  ${error.error.title}` )
+      alert(error.message + `:  ${error.error.message}` )
       
      
     });

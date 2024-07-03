@@ -1,5 +1,5 @@
 ::ng-deep{
-    loading-spinner{
+    // loading-spinner{
         .loading {
             position: absolute;
             top: 0;
@@ -36,7 +36,7 @@
             border-radius: 50%;
             border: 0.4em solid currentColor;
             border-color: #ff8c23 transparent #ff8c23 transparent;
-            animation: _ngcontent-ng-c475482428_lds-dual-ring 1.2s linear infinite;
+            animation: lds-dual-ring 1.2s linear infinite;
         }
         
         @keyframes lds-dual-ring {
@@ -48,5 +48,5 @@
                 transform: rotate(360deg);
             }
         }
-    }
+    // }
 }
