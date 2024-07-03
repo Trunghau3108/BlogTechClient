@@ -1,5 +1,6 @@
 <div class="user-control">
-<div class="form-action">
+  <loading-spinner [isLoading]="isLoading"></loading-spinner>
+<div class="form-action" >
     <div class="user-form" *ngIf="isRegisterForm">
       <div class="title">Create Your New Account!
         <br>
@@ -7,20 +8,80 @@
       </div>
       <form class="form register-form">
         <div class="form-item item1">
-          <kendo-textbox  name="name" id="namedk" placeholder="Name" [(ngModel)]="user.fullName"></kendo-textbox>
+          <kendo-floatinglabel labelCssClass="custom-label-class" text="Name">
+            <kendo-textbox  name="name" id="namedk" placeholder="Name" [(ngModel)]="user.fullName"
+            required
+            [showSuccessIcon]="user.fullName.length > 3"
+            showErrorIcon="initial"
+          >
+              <ng-template kendoTextBoxPrefixTemplate>
+                <kendo-svgicon [icon]="icons.user"></kendo-svgicon>
+                <kendo-textbox-separator></kendo-textbox-separator>
+              </ng-template>
+            </kendo-textbox>
+          </kendo-floatinglabel>
         </div>
         <div class="form-item item2">
-          <kendo-textbox   name="mail" id="email" placeholder="Email Address" [(ngModel)]="user.email"></kendo-textbox>
+          <kendo-floatinglabel labelCssClass="custom-label-class" text="Email Address">
+            <kendo-textbox  name="namedn"
+            id="username"
+            placeholder="YourEmail@email.com" [(ngModel)]="user.email"
+            required
+            [showSuccessIcon]="hasValidEmail(user.email)"
+            showErrorIcon="initial"
+          >
+              <ng-template kendoTextBoxPrefixTemplate>
+                <kendo-svgicon [icon]="icons.evenlope"></kendo-svgicon>
+                <kendo-textbox-separator></kendo-textbox-separator>
+              </ng-template>
+            </kendo-textbox>
+          </kendo-floatinglabel>
         </div>
         <div class="form-item item3">
-          <kendo-textbox  type="password" name="pw"  id="password" placeholder="Password" [(ngModel)]="user.password"></kendo-textbox>
+          <kendo-floatinglabel labelCssClass="custom-label-class" text="Password">
+            <kendo-textbox
+              [type]="textboxTypePw"
+               name="pw" placeholder="Password"  id="password" [(ngModel)]="user.password"
+               required
+               [showSuccessIcon]="user.password.length >= 6"
+               showErrorIcon="initial"
+            >
+              <ng-template kendoTextBoxPrefixTemplate>
+                <button
+                  kendoButton
+                  [svgIcon]="icons.eye"
+                  (click)="onClickShowPassword()"
+                ></button>
+                <kendo-textbox-separator></kendo-textbox-separator>
+              </ng-template>
+  
+            </kendo-textbox>
+            </kendo-floatinglabel>
         </div>
         <div class="form-item item4">
-          <kendo-textbox  type="password" name="pw"  id="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword"></kendo-textbox>
+          <kendo-floatinglabel labelCssClass="custom-label-class" text="Confirm Password">
+            <kendo-textbox
+              [type]="textboxTypePwConfirm"
+               name="confirmpw" placeholder="Confirm Password"  id="password" [(ngModel)]="confirmPassword"
+               required
+               [showSuccessIcon]="confirmPassword == user.password && confirmPassword.length > 0"
+               showErrorIcon="initial"
+            >
+              <ng-template kendoTextBoxPrefixTemplate>
+                <button
+                  kendoButton
+                  [svgIcon]="icons.eye"
+                  (click)="onClickShowPassword(true)"
+                ></button>
+                <kendo-textbox-separator></kendo-textbox-separator>
+              </ng-template>
+  
+            </kendo-textbox>
+            </kendo-floatinglabel>
         </div>
         <div class="form-item item-radio">
           <div class="radio-remember">
-            <input kendoRadioButton type="radio" >
+            <kendo-checkbox></kendo-checkbox>
             <p>I Have Read and Agree to the <span>Terms & Conditions</span> </p>
           </div>
         </div>
@@ -37,15 +98,47 @@
     </div>
       <form class="form login-form">
         <div class="form-item item1">
-          <kendo-textbox  name="namedn"  id="username" placeholder="Email Address" [(ngModel)]="user.email"> </kendo-textbox>
+          <kendo-floatinglabel labelCssClass="custom-label-class" text="Email Address">
+            <kendo-textbox  name="namedn"
+            id="username"
+            placeholder="YourEmail@email.com" [(ngModel)]="user.email"
+            required
+            [showSuccessIcon]="hasValidEmail(user.email)"
+            showErrorIcon="initial"
+
+          >
+              <ng-template kendoTextBoxPrefixTemplate>
+                <kendo-svgicon [icon]="icons.evenlope"></kendo-svgicon>
+                <kendo-textbox-separator></kendo-textbox-separator>
+              </ng-template>
+            </kendo-textbox>
+          </kendo-floatinglabel>
+   
         </div>
         <div class="form-item item2">
-          <kendo-textbox  type="password" name="pw" placeholder="Password"  id="password" [(ngModel)]="user.password"> </kendo-textbox>
+          <kendo-floatinglabel labelCssClass="custom-label-class" text="Password">
+          <kendo-textbox
+            [type]="textboxTypePw"
+             name="pw" placeholder="Password"  id="password" [(ngModel)]="user.password"
+             required
+             showErrorIcon="initial"
+          >
+            <ng-template kendoTextBoxPrefixTemplate>
+              <button
+                kendoButton
+                [svgIcon]="icons.eye"
+                (click)="onClickShowPassword()"
+              ></button>
+              <kendo-textbox-separator></kendo-textbox-separator>
+            </ng-template>
+
+          </kendo-textbox>
+          </kendo-floatinglabel>
           <!-- <span class="forgot">Forgot Password ?</span> -->
         </div>
         <div class="form-item item-radio">
         <div class="radio-remember">
-          <input kendoRadioButton type="radio">
+          <kendo-checkbox></kendo-checkbox>
           <span>Remember Me</span>
         </div>
         <div class="forgot-pw" routerLink="/forgotpassword">
@@ -65,7 +158,20 @@
 
       <form class="form forgot-form">
         <div class="form-item item1">
-          <kendo-textbox  name="namedn"  id="username" placeholder="Enter Your Email" [(ngModel)]="user.email"> </kendo-textbox>
+          <kendo-floatinglabel labelCssClass="custom-label-class" text="Email Address">
+            <kendo-textbox  name="namedn"
+            id="username"
+            placeholder="Enter Your Email" [(ngModel)]="user.email"
+            required
+            [showSuccessIcon]="hasValidEmail(user.email)"
+            showErrorIcon="initial"
+          >
+              <ng-template kendoTextBoxPrefixTemplate>
+                <kendo-svgicon [icon]="icons.evenlope"></kendo-svgicon>
+                <kendo-textbox-separator></kendo-textbox-separator>
+              </ng-template>
+            </kendo-textbox>
+          </kendo-floatinglabel>
         </div>
         <button kendoButton class="btn btn-primary">Send Recovery Email</button>
 
@@ -85,5 +191,8 @@
       </div>
     </div>
   </div>
+  <!-- <kendo-loader type="converging-spinner"  *ngIf="isLoading" size="large">
+    <div class="k-loading-panel-text">Loading...</div>
+  </kendo-loader> -->
 </div>
 </div>

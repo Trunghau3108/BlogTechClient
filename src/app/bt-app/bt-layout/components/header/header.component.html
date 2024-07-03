@@ -27,8 +27,34 @@
     </div>
 
     <div class="user-default" *ngIf="user && user!.userID > 0">
-     <div class="name">{{user.fullName ? 'Xin chào ' + user.fullName : "" }}</div>
-     <button kendoButton (click)="logOut()">{{user.userID > 0 ? 'Đăng xuất ': "" }}</button>
+     <!-- <div class="name">{{user.fullName ? 'Xin chào ' + user.fullName : "" }}</div>
+     <button kendoButton (click)="logOut()">{{user.userID > 0 ? 'Đăng xuất ': "" }}</button> -->
+     <kendo-avatar [svgIcon]="bellSvg"></kendo-avatar>
+     <button class="btn-user" [svgIcon]="userSvg"  kendoButton #anchor (click)="onTogglePopupUser()"></button>
+    <kendo-popup
+    #popup
+     [anchor]="anchor.element"
+    *ngIf="showPopupUser"
+    popupClass="content popup"
+    [margin]="margin"
+    style="left: 1100px !important; top: 59px !important; "
+    >
+      <div class="info-user">
+          <div class="email">
+            <p>{{user.email}}</p>
+          </div>
+          <div class="avt">
+            <kendo-avatar [svgIcon]="userSvg"></kendo-avatar>
+            <div class="name">{{'Chào '+user.fullName + ','}}</div>
+          </div>
+          <div class="setting-user">
+            <button kendoButton>Quản lý Tài khoản Blog của bạn</button>
+          </div>
+          <div class="logout">
+            <button kendoButton [svgIcon]="logout" (click)="logOut()">Đăng xuất</button>
+          </div>
+      </div>
+    </kendo-popup>
     </div>
   </div>
 </div>

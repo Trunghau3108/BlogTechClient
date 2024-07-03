@@ -66,6 +66,65 @@
                     }
                 }
             }
+            .user-default{
+                .k-avatar{
+                    &:first-child{
+                        background-color: white;
+                        border-color: white;
+                        color: #ff8c23;
+                    }
+                    &:last-child{
+                        background-color: #ff8c23;
+                    }
+                }
+                .btn-user{
+                    border: none;
+                    border-radius: 50%;
+                    background-color: white;
+                    color: #ff8c23;
+                }
+
+                .k-animation-container{
+                    .k-popup{
+                        border-radius: 15px;
+                    .info-user{
+                        background-color: #FFF0E2;
+                        padding: 15px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 20px;
+                        border-radius: 15px;
+                        .email{
+                            font-weight: 700;
+                        }
+                        .avt{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 5px;
+                            .name{
+                                font-size: 20px;
+                                font-weight: 600;
+                            }
+                        }
+                        .setting-user,.logout{
+                            .k-button{
+                                background-color: #FFF0E2;
+                                color: #ff8c23;
+                                font-weight: 600;
+                                border-radius: 20px;
+                                border: 1px solid gray;
+                                padding: 10px 15px;
+                            }
+                        }
+                    }
+
+                  }
+                }
+            }
+            
         }
         // overflow: auto;
     }

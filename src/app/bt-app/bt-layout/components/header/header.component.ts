@@ -1,20 +1,34 @@
-import { Component, Inject,PLATFORM_ID } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject,PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
 import { MenusModule } from '@progress/kendo-angular-menu';
 import { Router, RouterModule } from "@angular/router";
-import { NgIf } from '@angular/common';
+import { NgIf,DOCUMENT } from '@angular/common';
 import { ButtonModule } from '@progress/kendo-angular-buttons';
 import { DTOUser } from '../../../bt-login/shared/dto/DTOUser.dto';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser,Location  } from '@angular/common';
+import { LayoutModule } from "@progress/kendo-angular-layout";
+import { SVGIcon, userIcon,bellIcon,logoutIcon } from "@progress/kendo-svg-icons";
+import { PopupModule } from '@progress/kendo-angular-popup';
+
+
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MenusModule,NgIf,RouterModule,ButtonModule],
+  imports: [MenusModule,NgIf,RouterModule,ButtonModule,LayoutModule,PopupModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
+  @ViewChild('anchor') anchor!: ElementRef;
+  @ViewChild('popup') popup!: ElementRef;
+  
   public items: any[] = []
+  userSvg: SVGIcon = userIcon;
+  bellSvg: SVGIcon = bellIcon;
+  logout: SVGIcon = logoutIcon;
+  showPopupUser = false;
+
+  margin = { horizontal: -260, vertical: 25 };
+
 //    = [
 //     {
 //         text: 'Home',
@@ -32,15 +46,40 @@ export class HeaderComponent {
 
 
 constructor(private router: Router,
-  @Inject(PLATFORM_ID) private platformId: Object
+  @Inject(PLATFORM_ID) private platformId: Object,
+  @Inject(DOCUMENT) private document: Document,
+  private renderer: Renderer2,
+  private location: Location
 ) {
   this.items = this.mapItems(router.config);
 }
+
+//todo - click outside with popup
+// ngAfterViewInit() {
+//   this.renderer.listen('document', 'click', this.handleOutsideClick.bind(this));
+// }
+
+// ngOnDestroy() {
+//   this.renderer.listen('document', 'click', this.handleOutsideClick.bind(this));
+// }
+// handleOutsideClick(event: MouseEvent) {
+//   if (!this.popup.nativeElement.contains(event.target) &&!this.anchor.nativeElement.contains(event.target)) {
+//     this.showPopupUser = false;
+//   }
+// }
 
 ngOnInit(){
   this.getUserLocal();
 }
 
+
+
+
+onTogglePopupUser(){
+  this.showPopupUser = !this.showPopupUser
+}
+
+//getuser
 user = new DTOUser();
 getUserLocal(){
   if (isPlatformBrowser(this.platformId)) {
@@ -51,7 +90,7 @@ getUserLocal(){
 
 logOut(){
   localStorage.removeItem("user");
-  this.ngOnInit();
+  window.location.reload();
 }
 
 // convert the routes to menu items.
