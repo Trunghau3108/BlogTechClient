@@ -39,7 +39,6 @@ export class UserControlComponent {
     public apiLoginService: LoginApiService,
     private router: Router
   ){}
-  @HostBinding('class.kendo-loader-overlay')
   ngAfterViewInit(){
     // var ourImage = new Image();
     // ourImage.id='irimg';

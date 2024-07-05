@@ -81,12 +81,11 @@
 
         <!-- region Blogs -->
         <div class="block-blogs">
-<<<<<<< HEAD
-            <h1>Blog</h1>
-            <h2>
+            <h2>Blog</h2>
+            <div class="title">
                 Unlock the Secrets of Ddsgnr
                 with Our Expert Analysis
-            </h2>
+            </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <!-- region firstBlogs -->
             <div class="block-blogs-first">
@@ -108,20 +107,39 @@
                     </div>
                 </div>
             </div>
-            <div class="block-blogs-featured">
+
+            <!-- Featured -->
+            <div class="block-blogs-type  featured">
                 <h2>Featured blog posts</h2>
                 <!-- region component posts -->
-                <div class="block-blogs-featured-posts">
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
+                <div class="list-post">
+                    <div class="item-post" *ngFor="let item of items; index as i">
+                        <img src="../../../../../assets/img/toUse/{{ item.image }}"/>
+                        <div class="item-content">
+                            <div class="status">
+                                <button>Books</button>
+                                <p>5 min read</p>
+                            </div>
+                            <span>{{ item.title }}</span>
+                            <p>{{ item.content }}</p>
+                            <div class="more">
+                                <a href="#">Read more</a>
+                                <div class="icon">
+                                    <kendo-svg-icon [icon]="icons.right"></kendo-svg-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- end region -->
             </div>
-            <div class="block-blogs-type">
+
+            <!-- end -->
+
+
+
+            <!-- Trending -->
+            <div class="block-blogs-type trending">
                 <div class="block-blogs-type-content">
                     <div class="block-blogs-type-content-tittle">
                         <h2>Trending</h2>
@@ -132,13 +150,31 @@
                     </div>
                 </div>
 
-                <div class="block-blogs-type-posts">
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
+                <div class="list-post">
+                    <div class="item-post" *ngFor="let item of items | slice:0:3">
+                        <img src="../../../../../assets/img/toUse/{{ item.image }}"/>
+                        <div class="item-content">
+                            <div class="status">
+                                <button>Books</button>
+                                <p>5 min read</p>
+                            </div>
+                            <span>{{ item.title }}</span>
+                            <p>{{ item.content }}</p>
+                            <div class="more">
+                                <a href="#">Read more</a>
+                                <div class="icon">
+                                    <kendo-svg-icon [icon]="icons.right"></kendo-svg-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="block-blogs-type">
+            <!-- end -->
+
+
+            <!-- Popular -->
+            <div class="block-blogs-type popular">
                 <div class="block-blogs-type-content">
                     <div class="block-blogs-type-content-tittle">
                         <h2>Popular</h2>
@@ -149,21 +185,30 @@
                     </div>
                 </div>
 
-                <div class="block-blogs-type-posts">
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
-                    <app-posts></app-posts>
+                <div class="list-post">
+                    <div class="item-post" *ngFor="let item of items | slice:0:3">
+                        <img src="../../../../../assets/img/toUse/{{ item.image }}"/>
+                        <div class="item-content">
+                            <div class="status">
+                                <button>Books</button>
+                                <p>5 min read</p>
+                            </div>
+                            <span>{{ item.title }}</span>
+                            <p>{{ item.content }}</p>
+                            <div class="more">
+                                <a href="#">Read more</a>
+                                <div class="icon">
+                                    <kendo-svg-icon [icon]="icons.right"></kendo-svg-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-
-            </div>
-            <!-- end region -->
-=======
-           <h1>blog</h1> 
-          
->>>>>>> main
         </div>
+        <!-- end region -->
+
+        <!-- near-footer -->
         <div class="near-footer">
             <div class="near-footer-content">
                 <div class="near-footer-content-left">
@@ -177,8 +222,10 @@
                 </div>
             </div>
         </div>
-        <!-- end region -->
+        <!-- end -->
+
     </div>
+    <!-- end regionBody -->
 
     <!-- footer -->
     <footer>
