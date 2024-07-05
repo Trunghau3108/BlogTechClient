@@ -2,9 +2,9 @@
   <div class="item">
 
     <div class="menu-item">
-      <div class="logo">
-        <img src="assets/img/logo/logo-header.png" alt="logo" routerLink="/">
-        <div class="headerName" routerLink="/">Blogtech</div>
+      <div class="logo" routerLink="/">
+        <img src="assets/img/logo/logo-header.png" alt="logo">
+        <div class="headerName">Blogtech</div>
       </div>
         <div class="item-action">
           <kendo-menu [items]="items">
@@ -20,10 +20,40 @@
             </kendo-menu>
       </div>
     </div>
-    <div class="log-res">
+    <div class="log-res" *ngIf="!user">
       <button kendoButton routerLink="/login">Sign In</button>
       <!-- <button kendoButton routerLink="/register">Register</button>
       <button kendoButton routerLink="/forgotpassword">Forgot</button> -->
+    </div>
+
+    <div class="user-default" *ngIf="user && user!.userID > 0">
+     <!-- <div class="name">{{user.fullName ? 'Xin chào ' + user.fullName : "" }}</div>
+     <button kendoButton (click)="logOut()">{{user.userID > 0 ? 'Đăng xuất ': "" }}</button> -->
+     <kendo-avatar [svgIcon]="bellSvg"></kendo-avatar>
+     <button class="btn-user" [svgIcon]="userSvg"  kendoButton #anchor (click)="onTogglePopupUser()"></button>
+    <kendo-popup
+    #popup
+     [anchor]="anchor.element"
+    *ngIf="showPopupUser"
+    popupClass="content popup"
+    [margin]="margin"
+    >
+      <div class="info-user">
+          <div class="email">
+            <p>{{user.email}}</p>
+          </div>
+          <div class="avt">
+            <kendo-avatar [svgIcon]="userSvg"></kendo-avatar>
+            <div class="name">{{'Chào '+user.fullName + ','}}</div>
+          </div>
+          <div class="setting-user">
+            <button kendoButton>Quản lý Tài khoản Blog của bạn</button>
+          </div>
+          <div class="logout">
+            <button kendoButton [svgIcon]="logout" (click)="logOut()">Đăng xuất</button>
+          </div>
+      </div>
+    </kendo-popup>
     </div>
   </div>
 </div>

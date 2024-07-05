@@ -1,11 +1,12 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeGlobalComponent } from './bt-app/bt-home/pages/home-global/home-global.component';
-import { ModuleWithProviders } from '@angular/core';
+import { BlogListComponent } from './bt-app/bt-home/pages/blog-list/blog-list.component';
 
 
 export const routes: Routes = [
-    { path: "", component: HomeGlobalComponent, },
-    {path: "", title: "Blogs", children: [],},
+    { path: "", component: HomeGlobalComponent, title: "Trang chủ" },
+    {path: "blogs",component: BlogListComponent, title: "Blogs", children: [],},
+    // {path: "", title: "Blogs", children: [],},
     {
       path: '',
       loadChildren: () => import('./bt-app/bt-login/bt-login.module').then(m => m.BtLoginModule)

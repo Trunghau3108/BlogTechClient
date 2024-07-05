@@ -4,6 +4,7 @@
       display: flex;
       justify-content: center;
           .form-action{
+            position: relative;
             box-shadow: 1px 2px 5px rgba(12, 12, 12, 0.3);
             padding: 30px;
             width: 500px;
@@ -30,7 +31,7 @@
               .form{
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 10px;
                 .end-forgot{
                   text-align: center;
                   span{
@@ -44,8 +45,47 @@
                     height: 50px;
                     border-radius: 5px;
                   }
+                  .k-floating-label-container.k-empty > .k-floating-label{
+                    top: 35px;
+                    left: 50px;
+                  }
+                  .k-floating-label-container:focus-within > .k-floating-label{
+                    top: 0 !important;
+                    left: 0 !important;
+                  }
+                  
+                  .k-floating-label-container{
+                    .k-textbox{
+                      .k-icon-wrapper-host{
+                        color: green;
+                      }
+                    }
+                    .k-input-prefix{
+                      .k-svg-icon{
+                        width: 25px;
+                        color: #ff8c23;
+                      }
+                      
+                      .k-button{
+                        border: none;
+                        box-shadow: none;
+                        background-color: white;
+                        color: #ff8c23;
+                        .k-svg-icon{
+                          width: 25px;
+                          svg{
+                            width: 25px;
+                            height: 25px;
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
-                .k-button{
+
+              
+
+                .btn{
                   width: 500px;
                   height: 50px;
                   border-radius: 5px;
@@ -73,10 +113,13 @@
                         cursor: pointer;
                       }
                     }
-                    .k-radio{
+                    .k-checkbox{
+                      
                       border-color: #919593;
-                      height: 20px;
-                      width: 20px;
+                      border-radius: 50%;
+                      box-shadow: none;
+                      // height: 20px;
+                      // width: 20px;
                       &:checked{
                         border-color: #ff8c23;
                         background-color: #ff8c23;
@@ -145,6 +188,7 @@
                 }
               }
             }
+
           }
       }        
 }
