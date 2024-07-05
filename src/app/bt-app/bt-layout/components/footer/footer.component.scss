@@ -1,9 +1,106 @@
 ::ng-deep{
     .footer{
-        height: 50px; /* adjust the height to your needs */
-        background-color: #f0f0f0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 100%;
+        margin-top: 100px;
+        .footer-content{
+            width: 100%;
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-bottom: 1px solid;
+            .footer-content-left{
+                width: 40%;
+                padding-left: 100px;
+                .footer-content-left-logo{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    img{
+                        width: 70px;
+                        height: 70px;
+                    }
+                    .footerName{
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+                    
+                }
+                .footer-content-left-search{
+                    margin-top: 20px;
+                    input{
+                        width: 400px;
+                        height: 35px;
+                        padding-left: 10px;
+                        border-radius: 5px;
+                        align-items: center;
+                    }
+                    button{
+                        margin-left: 10px;
+                        height: 35px;
+                        padding: 5px 15px;
+                        border-radius: 5px;
+                        font-weight: bold;
+                        background-color: white;
+                    }
+                }
+                p{
+                    max-width: 80%;
+                    font-size: 14px;
+                    margin-top: 20px;
+                }
+            }
+            .footer-content-right{
+                width: 40%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .footer-content-right-1{
+                    width: 30%;
+                    h2{
+                        font-size: 20px;
+                    }
+                    p{
+                        font-size: 14px;
+                        margin-top: 20px;
+                    }
+                }
+                .footer-content-right-2{
+                    width: 30%;
+                    h2{
+                        font-size: 20px;
+                    }
+                    p{
+                        font-size: 14px;
+                        margin-top: 20px;
+                    }
+                }
+                .footer-content-right-3{
+                    width: 30%;
+                    h2{
+                        font-size: 20px;
+                    }
+                    .footer-content-right-3-thirdParty{
+                        margin-top: 20px;
+                        display: flex;
+                        align-items: center;
+                        flex-direction: row;
+                        icon{
+                            width: 20px;
+                            height: 20px;
+                        }
+                        p{
+                            font-size: 14px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 }

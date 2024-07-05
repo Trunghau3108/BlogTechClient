@@ -11,82 +11,172 @@
                 Find Nearby Blogs <span>Celebrity.</span>
             </div>
             <div class="description">
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend lobortis semper.</p> 
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend lobortis semper.</p>
             </div>
             <div class="group-filter">
                 <div class="item item1">
                     <kendo-textbox placeholder="Search Blogs Keywords...">
                         <ng-template kendoTextBoxSuffixTemplate>
                             <kendo-svg-icon [icon]="icons.searchIcon"></kendo-svg-icon>
-                          </ng-template>
+                        </ng-template>
                     </kendo-textbox>
                 </div>
                 <div class="item item2">
-                   <kendo-dropdownlist [data]="data" textField="name" valueField="code" [defaultItem]="{code:null,name:'Select Name'}"></kendo-dropdownlist>
+                    <kendo-dropdownlist [data]="data" textField="name" valueField="code"
+                        [defaultItem]="{code:null,name:'Select Name'}"></kendo-dropdownlist>
                 </div>
                 <div class="item item3">
-                    <kendo-dropdownlist [data]="data" textField="name" valueField="code" [defaultItem]="{code:null,name:'All Categories'}"></kendo-dropdownlist>
+                    <kendo-dropdownlist [data]="data" textField="name" valueField="code"
+                        [defaultItem]="{code:null,name:'All Categories'}"></kendo-dropdownlist>
                 </div>
                 <div class="item item4">
                     <button kendoButton [svgIcon]="icons.searchIcon">SEARCH BLOGS</button>
                 </div>
             </div>
             <div class="trending-keyword">
-               <span>Trending Blogs Keywords: </span>
-               [array]
-             </div>
+                <span>Trending Blogs Keywords: </span>
+                [array]
+            </div>
 
-             <div class="popular-blogs">
-                    <div class="item">
-                        <div class="sub-item">
-                            <div class="icon">
-                                <kendo-svg-icon [icon]="icons.home"></kendo-svg-icon>
-                            </div>
-                            <div class="data">
-                                <span class="number">18,955</span>
-                                <p>Live Blogs Posted</p>
-                            </div>
-
+            <div class="popular-blogs">
+                <div class="item">
+                    <div class="sub-item">
+                        <div class="icon">
+                            <kendo-svg-icon [icon]="icons.home"></kendo-svg-icon>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="sub-item">
-                            <div class="icon">
-                                <kendo-svg-icon [icon]="icons.myspace"></kendo-svg-icon>
-                            </div>
-                            <div class="data">
-                                <span class="number">11,088</span>
-                                <p>Live Blogs Posted</p>
-                            </div>
-
+                        <div class="data">
+                            <span class="number">18,955</span>
+                            <p>Live Blogs Posted</p>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="sub-item">
-                            <div class="icon">
-                                <kendo-svg-icon [icon]="icons.thumb"></kendo-svg-icon>
-                            </div>
-                            <div class="data">
-                                <span class="number">10,758</span>
-                                <p>Live Blogs Posted</p>
-                            </div>
 
-                        </div>
                     </div>
-             </div>
+                </div>
+                <div class="item">
+                    <div class="sub-item">
+                        <div class="icon">
+                            <kendo-svg-icon [icon]="icons.myspace"></kendo-svg-icon>
+                        </div>
+                        <div class="data">
+                            <span class="number">11,088</span>
+                            <p>Live Blogs Posted</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="sub-item">
+                        <div class="icon">
+                            <kendo-svg-icon [icon]="icons.thumb"></kendo-svg-icon>
+                        </div>
+                        <div class="data">
+                            <span class="number">10,758</span>
+                            <p>Live Blogs Posted</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- end region -->
 
         <!-- region Blogs -->
         <div class="block-blogs">
-           <h1>blog</h1> 
-           <button kendoButton routerLink="/Blog">Test router link</button>
+            <h1>Blog</h1>
+            <h2>
+                Unlock the Secrets of Ddsgnr
+                with Our Expert Analysis
+            </h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <!-- region firstBlogs -->
+            <div class="block-blogs-first">
+                <img src="../../../../../assets/img/toUse/bookInHand.jpg" />
+                <div class="block-blogs-first-content">
+                    <div class="block-blogs-first-tittle">
+                        <h1>Business</h1>
+                        <h2>
+                            How to Get Any Startup Idea Funded
+                        </h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    </div>
+                    <div class="block-blogs-first-account">
+                        <img src="../../../../../assets/img/toUse/avatar.jpg" />
+                        <div class="block-blogs-first-account-info">
+                            <span>Cristiano Ronaldo</span>
+                            <p>11 Jan 2022 • 5 min read </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-blogs-featured">
+                <h2>Featured blog posts</h2>
+                <!-- region component posts -->
+                <div class="block-blogs-featured-posts">
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                </div>
+                <!-- end region -->
+            </div>
+            <div class="block-blogs-type">
+                <div class="block-blogs-type-content">
+                    <div class="block-blogs-type-content-tittle">
+                        <h2>Trending</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="block-blogs-type-content-button">
+                        <button>View all</button>
+                    </div>
+                </div>
+
+                <div class="block-blogs-type-posts">
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                </div>
+            </div>
+            <div class="block-blogs-type">
+                <div class="block-blogs-type-content">
+                    <div class="block-blogs-type-content-tittle">
+                        <h2>Popular</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="block-blogs-type-content-button">
+                        <button>View all</button>
+                    </div>
+                </div>
+
+                <div class="block-blogs-type-posts">
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                    <app-posts></app-posts>
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <!-- end region -->
         </div>
-          <!-- end region -->
+        <div class="near-footer">
+            <div class="near-footer-content">
+                <div class="near-footer-content-left">
+                    <h2>Sign up for our newsletter</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="near-footer-content-right">
+                    <input placeholder="Enter your email" />
+                    <button>Subcribe</button>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+        <!-- end region -->
     </div>
-    
+
     <!-- footer -->
-     <footer>
+    <footer>
         <app-footer></app-footer>
-     </footer>
+    </footer>
 </div>
