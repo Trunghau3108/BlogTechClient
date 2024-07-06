@@ -5,11 +5,11 @@
         height: 100%;
 
         // overflow: auto;
-        .header {
-            width: 100%;
-            position: fixed;
-            z-index: 9999;
-        }
+        // .header {
+        //     width: 100%;
+        //     position: fixed;
+        //     z-index: 9999;
+        // }
 
         .body {
 
@@ -133,6 +133,9 @@
                 }
                 p{
                     font-weight: 500;
+                }
+                img{
+                    border-radius: 10px;
                 }
 
                 .block-blogs-first {
