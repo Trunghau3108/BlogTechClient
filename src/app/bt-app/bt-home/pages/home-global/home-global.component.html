@@ -7,6 +7,10 @@
     <div class="body">
         <!--region search -->
         <div class="block-searchBlog">
+            <video autoplay loop muted id="background-video">
+                <source src="../../../../../assets/video/background/503196_Keyboard Typing Laptop Blue_By_Arthur_Cauty_Artlist_HD.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             <div class="title">
                 Find Nearby Blogs <span>Celebrity.</span>
             </div>
@@ -23,10 +27,10 @@
                 </div>
                 <div class="item item2">
                     <kendo-dropdownlist [data]="data" textField="name" valueField="code"
-                        [defaultItem]="{code:null,name:'Select Name'}"></kendo-dropdownlist>
+                        [defaultItem]="{code:null,name:'Select Location'}"></kendo-dropdownlist>
                 </div>
                 <div class="item item3">
-                    <kendo-dropdownlist [data]="data" textField="name" valueField="code"
+                    <kendo-dropdownlist [data]="listCategory" textField="name" valueField="id"
                         [defaultItem]="{code:null,name:'All Categories'}"></kendo-dropdownlist>
                 </div>
                 <div class="item item4">

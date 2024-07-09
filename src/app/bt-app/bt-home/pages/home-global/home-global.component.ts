@@ -11,6 +11,7 @@ import { NgFor } from '@angular/common';
 import { DTOBlog } from '../../shared/dto/DTOBlog.dto';
 import { BlogApiService } from '../../shared/services/blog-api.service';
 import { Ps_UtilObjectService } from '../../../../bt-lib/utilities/utility.object';
+import { DTOCategory } from '../../shared/dto/DTOCategory.dto';
 @Component({
   selector: 'app-home-global',
   standalone: true,
@@ -42,6 +43,7 @@ export class HomeGlobalComponent {
 
   ngOnInit():void{
     this.GetAllBlog()
+    this.GetListCategory();
   }
 
   listBlog: DTOBlog[] = []
@@ -57,6 +59,23 @@ export class HomeGlobalComponent {
         this.listTrending = this.listBlog.filter(s => s.isTrending == true)
         this.listFeatured = this.listBlog.filter(s => s.isFeatured == true)
         this.listPopular = this.listBlog.filter(s => s.isPopular == true)
+      }
+      // this.isLoading = false
+    }, (error: any) => {
+      // this.isLoading = false
+      console.error(error);
+      alert(error.message + `:  ${error.error.message}` )
+    });
+  }
+
+
+  listCategory: DTOCategory[] = []
+  GetListCategory() {
+    // this.isLoading = true
+    this.blogAPIService.GetListCategory().subscribe((response: any) => {
+      if(Ps_UtilObjectService.hasListValue(response)){
+        this.listCategory = response
+        console.log(this.listCategory)
       }
       // this.isLoading = false
     }, (error: any) => {
