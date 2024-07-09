@@ -113,15 +113,15 @@
                 <h2>Featured blog posts</h2>
                 <!-- region component posts -->
                 <div class="list-post">
-                    <div class="item-post" *ngFor="let item of items; index as i">
-                        <img src="../../../../../assets/img/toUse/{{ item.image }}"/>
+                    <div class="item-post" *ngFor="let item of listFeatured | slice:0:6; index as i">
+                        <img src="../../../../../assets/img/toUse/bookInHand.jpg"/>
                         <div class="item-content">
                             <div class="status">
-                                <button>Books</button>
-                                <p>5 min read</p>
+                                <button>{{item.categoryName}}</button>
+                                <p>{{item.categoryID}} min read</p>
                             </div>
-                            <span>{{ item.title }}</span>
-                            <p>{{ item.content }}</p>
+                            <span>{{ item.blogTitle }}</span>
+                            <p>{{ item.blogDescription }}</p>
                             <div class="more">
                                 <a href="#">Read more</a>
                                 <div class="icon">
@@ -151,22 +151,23 @@
                 </div>
 
                 <div class="list-post">
-                    <div class="item-post" *ngFor="let item of items | slice:0:3">
-                        <img src="../../../../../assets/img/toUse/{{ item.image }}"/>
-                        <div class="item-content">
-                            <div class="status">
-                                <button>Books</button>
-                                <p>5 min read</p>
-                            </div>
-                            <span>{{ item.title }}</span>
-                            <p>{{ item.content }}</p>
-                            <div class="more">
-                                <a href="#">Read more</a>
-                                <div class="icon">
-                                    <kendo-svg-icon [icon]="icons.right"></kendo-svg-icon>
+                    
+                    <div class="item-post" *ngFor="let item of listTrending | slice:0:3 ; index as i">
+                            <img src="../../../../../assets/img/toUse/bookInHand.jpg"/>
+                            <div class="item-content">
+                                <div class="status">
+                                    <button>{{item.categoryName}}</button>
+                                    <p>{{item.categoryID}} min read</p>
+                                </div>
+                                <span>{{ item.blogTitle }}</span>
+                                <p>{{ item.blogDescription }}</p>
+                                <div class="more">
+                                    <a href="#">Read more</a>
+                                    <div class="icon">
+                                        <kendo-svg-icon [icon]="icons.right"></kendo-svg-icon>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -186,15 +187,16 @@
                 </div>
 
                 <div class="list-post">
-                    <div class="item-post" *ngFor="let item of items | slice:0:3">
-                        <img src="../../../../../assets/img/toUse/{{ item.image }}"/>
+                    <div class="item-post" *ngFor="let item of listPopular | slice:0:3 ; index as i">
+                        <img src="../../../../../assets/img/toUse/bookInHand.jpg"/>
+                        <!-- <img [src]="item.imageThumbnail"/> -->
                         <div class="item-content">
                             <div class="status">
-                                <button>Books</button>
-                                <p>5 min read</p>
+                                <button>{{item.categoryName}}</button>
+                                <p>{{item.categoryID}} min read</p>
                             </div>
-                            <span>{{ item.title }}</span>
-                            <p>{{ item.content }}</p>
+                            <span>{{ item.blogTitle }}</span>
+                            <p>{{ item.blogDescription }}</p>
                             <div class="more">
                                 <a href="#">Read more</a>
                                 <div class="icon">
@@ -202,7 +204,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                </div>
                 </div>
             </div>
         </div>

@@ -7,6 +7,8 @@
         overflow-x: auto;
         overflow-y: hidden;
         box-shadow: 0px 2px 5px rgba(200, 200, 200, 0.3);
+        position: fixed;
+        z-index: 9999;
         .item{
             height: 60px;
             padding:0 60px;
@@ -84,11 +86,13 @@
                     color: #ff8c23;
                 }
 
+
+                //popup
                 .k-animation-container{
                     .k-popup{
                         border-radius: 15px;
                     .info-user{
-                        background-color: #FFF0E2;
+                        background-color: #f8ece2;
                         padding: 15px;
                         display: flex;
                         flex-direction: column;

@@ -15,11 +15,29 @@ import { PopupModule } from '@progress/kendo-angular-popup';
   standalone: true,
   imports: [MenusModule,NgIf,RouterModule,ButtonModule,LayoutModule,PopupModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  @ViewChild('anchor') anchor!: ElementRef;
-  @ViewChild('popup') popup!: ElementRef;
+  @ViewChild("anchor", { read: ElementRef }) public anchor!: ElementRef;
+  @ViewChild("popup", { read: ElementRef }) public popup!: ElementRef;
+
+  //Xử lý việc click ra khỏi popup thì sẽ đóng
+  @HostListener("document:keydown", ["$event"])
+  public keydown(event: KeyboardEvent): void {
+    if (event.code === "Escape") {
+      this.onTogglePopupUser(false);
+    }
+  }
+
+  @HostListener("document:click", ["$event"])
+  public documentClick(event: KeyboardEvent): void {
+    if (event.target) {
+      if (!this.contains(event.target)) {
+        this.onTogglePopupUser(false);
+      }
+    }
+  }
+  //end
   
   public items: any[] = []
   userSvg: SVGIcon = userIcon;
@@ -54,19 +72,6 @@ constructor(private router: Router,
   this.items = this.mapItems(router.config);
 }
 
-//todo - click outside with popup
-// ngAfterViewInit() {
-//   this.renderer.listen('document', 'click', this.handleOutsideClick.bind(this));
-// }
-
-// ngOnDestroy() {
-//   this.renderer.listen('document', 'click', this.handleOutsideClick.bind(this));
-// }
-// handleOutsideClick(event: MouseEvent) {
-//   if (!this.popup.nativeElement.contains(event.target) &&!this.anchor.nativeElement.contains(event.target)) {
-//     this.showPopupUser = false;
-//   }
-// }
 
 ngOnInit(){
   this.getUserLocal();
@@ -74,18 +79,16 @@ ngOnInit(){
 
 
 
-
-onTogglePopupUser(){
-  this.showPopupUser = !this.showPopupUser
+//#RegionHandle
+onTogglePopupUser(show?: boolean): void{
+  this.showPopupUser = show !== undefined ? show : !this.showPopupUser;
 }
 
-//getuser
-user = new DTOUser();
-getUserLocal(){
-  if (isPlatformBrowser(this.platformId)) {
-    var userLS = localStorage.getItem('user');
-    this.user = userLS ? JSON.parse(userLS) : null;
-  }
+contains(target: EventTarget): boolean {
+  return (
+    this.anchor?.nativeElement.contains(target) ||
+    (this.popup ? this.popup?.nativeElement.contains(target) : false)
+  );
 }
 
 logOut(){
@@ -109,6 +112,17 @@ private mapItems(routes: any[], path?: string): any[] {
     // console.log(result)
     return result;
   });
+}
+
+//#endRegion
+
+//getuser
+user = new DTOUser();
+getUserLocal(){
+  if (isPlatformBrowser(this.platformId)) {
+    var userLS = localStorage.getItem('user');
+    this.user = userLS ? JSON.parse(userLS) : null;
+  }
 }
 
 }
