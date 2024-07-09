@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../../bt-layout/components/header/header.component';
 import { FooterComponent } from '../../../bt-layout/components/footer/footer.component';
-import { PostsComponent } from '../../../bt-layout/components/posts/posts.component';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
@@ -15,7 +14,6 @@ import { NgFor } from '@angular/common';
   imports: [
     HeaderComponent,
     FooterComponent,
-    PostsComponent,
     InputsModule,
     DropDownsModule,
     ButtonsModule,
