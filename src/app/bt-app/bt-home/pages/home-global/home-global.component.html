@@ -229,7 +229,9 @@
             </div>
         </div>
         <!-- end -->
-
+        <div [ngClass]="{'show-scroll-to-top': showScrollToTop}" class="scroll-to-top" (click)="scrollToTop()">
+            <kendo-svg-icon [icon]="icons.toTop"></kendo-svg-icon>
+          </div>
     </div>
     <!-- end regionBody -->
 
