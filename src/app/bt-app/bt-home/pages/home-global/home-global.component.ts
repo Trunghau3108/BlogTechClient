@@ -5,7 +5,7 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { IconsModule } from '@progress/kendo-angular-icons';
-import { searchIcon,homeIcon,myspaceIcon,thumbUpOutlineIcon, chevronRightIcon,caretDoubleAltUpIcon } from '@progress/kendo-svg-icons';
+import { searchIcon,homeIcon,myspaceIcon,thumbUpOutlineIcon, chevronRightIcon,arrowUpIcon,chevronDownIcon } from '@progress/kendo-svg-icons';
 import { RouterModule } from "@angular/router";
 import { NgFor } from '@angular/common';
 import { DTOBlog } from '../../shared/dto/DTOBlog.dto';
@@ -32,20 +32,13 @@ export class HomeGlobalComponent {
     home:homeIcon,
     thumb: thumbUpOutlineIcon,
     right: chevronRightIcon,
-    toTop:caretDoubleAltUpIcon
+    toTop:arrowUpIcon,
+    icDown:chevronDownIcon
   };
+
   data = [{code:1,name:"Test"}]
 
   constructor(public blogAPIService: BlogApiService){}
-
-  items = [
-    { title: 'Item 1', image: 'bookInHand.jpg', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { title: 'Item 2', image: 'bookInHand.jpg', content: 'Suspendisse varius enim in eros.' },
-    { title: 'Item 3', image: 'bookInHand.jpg', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { title: 'Item 4', image: 'bookInHand.jpg', content: 'Suspendisse varius enim in eros.' },
-    { title: 'Item 5', image: 'bookInHand.jpg', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { title: 'Item 6', image: 'bookInHand.jpg', content: 'Suspendisse varius enim in eros.' }
-  ];
 
   ngOnInit():void{
     this.GetAllBlog()
@@ -70,15 +63,22 @@ export class HomeGlobalComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  getImg(item:DTOBlog):string{
+    let linkServer = 'https://blogdev.somee.com'
+    return linkServer+item.imageThumbnail
+  }
+
   listBlog: DTOBlog[] = []
   listTrending: DTOBlog[] = []
   listFeatured: DTOBlog[] = []
   listPopular: DTOBlog[] = []
+  defaultBlog = new DTOBlog();
   GetAllBlog() {
     // this.isLoading = true
     this.blogAPIService.GetAllBlog().subscribe((response: any) => {
       if(Ps_UtilObjectService.hasListValue(response)){
         this.listBlog = response
+        this.defaultBlog = this.listBlog[15];
         // console.log(this.listBlog)
         this.listTrending = this.listBlog.filter(s => s.isTrending == true)
         this.listFeatured = this.listBlog.filter(s => s.isFeatured == true)

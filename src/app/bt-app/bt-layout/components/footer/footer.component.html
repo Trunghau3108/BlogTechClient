@@ -1,51 +1,64 @@
 <div class="footer">
     <div class="footer-content">
-        <div class="footer-content-left">
-            <div class="footer-content-left-logo">
+
+        <div class="f-content-left">
+            <div class="f-content-logo">
                 <img src="assets/img/logo/logo-header.png" alt="logo" routerLink="/">
-                <div class="footerName" routerLink="/">Blogtech</div>
+                <div class="logoName" routerLink="/">Blogtech</div>
             </div>
-            <span>Join our newsletter to stay up to date on features and release</span>
-            <div class="footer-content-left-search">
-                <input placeholder="Enter your email"/>
-                <button>Subcribe</button>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+            <p class="description">Join our newsletter to stay up to date on features and release Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
         </div>
-        <div class="footer-content-right">
-            <div class="footer-content-right-1">
-                <h2>About Us</h2>
-                <p>Popular</p>
-                <p>Trending</p>
-                <p>Contact</p>
-                <p>Support/Help</p>
-                <p>Request Topics</p>
+
+        <div class="f-content-center">
+            <div class="item">
+                <h3>COMPANY</h3>
+                <span>Donec dignissim</span>
+                <span>Curabitur egestas</span>
+                <span>Nam posuere</span>
+                <span>Aenean facilisis</span>
             </div>
-            <div class="footer-content-right-2">
-                <h2>Column Two</h2>
-                <p>FAQs</p>
-                <p>Terms and Condition</p>
-                <p>Support</p>
-                <p>Link Nine</p>
-                <p>Link Ten</p>
+            <div class="item">
+                <h3>SERVICES</h3>
+                <span>Cras convallis</span>
+                <span>Vestibulum faucibus</span>
+                <span>Quisque lacinia purus</span>
+                <span>Aliquam nec ex</span>
             </div>
-            <div class="footer-content-right-3">
-                <h2>Follow Us</h2>
-                <div class="footer-content-right-3-thirdParty">
-                    <kendo-svg-icon [icon]="icons.facebookIcon"></kendo-svg-icon>
-                    <p>Facebook</p>
-                </div>
-                <div class="footer-content-right-3-thirdParty">
-                    <kendo-svg-icon [icon]="icons.twitterIcon"></kendo-svg-icon>
-                    <p>Twitter</p>
-                </div>
-                <div class="footer-content-right-3-thirdParty">
-                    <kendo-svg-icon [icon]="icons.linkedinIcon"></kendo-svg-icon>
-                    <p>LinkedIn</p>
-                </div>
+            <div class="item">
+                <h3>RESOURCES</h3>
+                <span>Suspendisse porttitor</span>
+                <span>Nam posuere</span>
+                <span>Curabitur egestas </span>
             </div>
         </div>
+
+        <div class="f-content-right">
+            <div class="list-icon">
+                <div class="border"><kendo-svg-icon [icon]="icons.facebookIcon"></kendo-svg-icon></div>
+                <div class="border"><kendo-svg-icon [icon]="icons.linkedinIcon"></kendo-svg-icon></div> 
+                <div class="border"><kendo-svg-icon [icon]="icons.twitterIcon"></kendo-svg-icon></div> 
+            </div>
+            <div class="language">
+                <kendo-dropdownlist
+                [data]="data"
+                [value]="data[0]"
+                valueField="Code"
+                textField="Name"
+                buttonClass="custom-border custom-bg"
+                [svgIcon]="icons.icDown"
+              >
+              <ng-template kendoDropDownListValueTemplate let-dataItem>
+                    <img src="assets/img/icon/icon-world.svg" alt="">
+                    <span class="name">{{ dataItem?.Name }}</span>
+              </ng-template>
+
+              </kendo-dropdownlist>
+            </div>
+        </div>
+       
     </div>
+
     <div class="title">
         Copyright © 2024 All Rights Reserved.
     </div>
