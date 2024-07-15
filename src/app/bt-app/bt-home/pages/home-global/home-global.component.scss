@@ -3,7 +3,7 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-
+        justify-content: center;
         // overflow: auto;
         // .header {
         //     width: 100%;
@@ -12,11 +12,34 @@
         // }
 
         .body {
+            .scroll-to-top {
+                display: none;
+                position: fixed;
+                right: 20px;
+                bottom: 20px;
+                z-index: 999;
+                cursor: pointer;
+                background-color: white;
+                border: 1px solid #fa8a01;
+                border-radius: 50%;
+                padding: 10px;
+                color: #fa8a01;
+                &:hover{
+                    background-color: #fa8a01;
+                    color: white;
+                }
+              }
 
+              .show-scroll-to-top {
+                  display: block;
+                .k-svg-icon{
+                    width: 25px;
+                }
+              }
             //regionSearchBlog
             .block-searchBlog {
-                height: 500px;
-                background-color: #505358;
+                position: relative;
+                height: 700px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -24,6 +47,15 @@
                 gap: 15px;
                 color: white;
                 font-size: 20px;
+                #background-video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    z-index: -1; 
+                }
 
                 .title {
                     font-size: 50px;
@@ -139,21 +171,19 @@
                 }
 
                 .block-blogs-first {
-                    height: 500px;
                     align-items: center;
                     display: flex;
-                    justify-content: space-between;
-                    flex-direction: row;
-
-                    img {
+                    justify-content:flex-start;
+                    gap: 60px;
+                    .img{
                         width: 50%;
-                        height: 400px;
+                        img{
+                            width: 100%;
+                        }
                     }
+                   
 
                     .block-blogs-first-content {
-                        width: 50%;
-                        padding-left: 50px;
-
                         h1 {
                             font-size: medium;
                         }
@@ -239,10 +269,12 @@
                         grid-auto-rows: 1fr; 
                         gap: 30px; 
                         .item-post{
+                            // height: max-content;
                             grid-column: auto; 
                             grid-row: auto; 
                             img {
                                 width: 100%;
+                                height: 50%;
                             }
                     
                             .status {

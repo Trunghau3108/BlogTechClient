@@ -9,7 +9,7 @@ import { DTOBlog } from '../dto/DTOBlog.dto';
 export class BlogApiService {
 
   //server public
-  private apiUrl = 'https://blogdev.somee.com/api/Blog/'; 
+  private apiUrl = 'https://blogdev.somee.com/api/'; 
   //server local
   // private apiUrl = 'http://localhost:5012/'; 
 
@@ -24,7 +24,14 @@ export class BlogApiService {
       // 'Authorization': `Bearer ${param.accessToken}`, // use the stored token
       'Content-Type': 'application/json'
     });
-    return this.http.get(this.apiUrl + 'GetAllBlog', { headers: headers });
+    return this.http.get(this.apiUrl + 'Blog/GetAllBlog', { headers: headers });
+  }
+  GetListCategory(): Observable<any> {
+    const headers = new HttpHeaders({
+      // 'Authorization': `Bearer ${param.accessToken}`, // use the stored token
+      'Content-Type': 'application/json'
+    });
+    return this.http.get(this.apiUrl + 'Categories', { headers: headers });
   }
 }
 

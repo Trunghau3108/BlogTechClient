@@ -2,104 +2,95 @@
     .footer{
         border-top: 1px solid gray;
         width: 100%;
-        margin-top: 100px;
         .footer-content{
-            padding-top: 20px;
-            width: 100%;
-            height: 300px;
+            padding: 40px 60px;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 40px;
             border-bottom: 1px solid gray;
-            .footer-content-left{
-                width: 40%;
-                padding-left: 100px;
-                .footer-content-left-logo{
+            .f-content-left{
+                min-width: 300px;
+                width: 400px;
+                .f-content-logo{
+                    position: relative;
                     display: flex;
-                    flex-direction: row;
                     align-items: center;
+                    padding-bottom: 10px;
                     img{
-                        width: 70px;
-                        height: 70px;
+                        position: absolute;
+                        width: 120px;
+                        height: 120px;
+                        left: -40px;
+                        top: -35px;
+                        z-index: -9999;
                     }
-                    .footerName{
+                    .logoName{
+                        margin-left: 50px;
                         font-size: 24px;
                         font-weight: bold;
+                        color: #FA8A01;
                     }
                     
                 }
-                .footer-content-left-search{
-                    margin-top: 20px;
-                    input{
-                        width: 400px;
-                        height: 35px;
-                        padding-left: 10px;
-                        border-radius: 5px;
-                        align-items: center;
+            }
+
+            .f-content-center{
+                display: flex;
+                gap: 60px;
+                .item{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    min-width: max-content;
+                    h3{
+                        color: #FA8A01;
                     }
-                    button{
-                        margin-left: 10px;
-                        height: 35px;
-                        padding: 5px 15px;
-                        border-radius: 5px;
-                        font-weight: bold;
-                        background-color: white;
-                    }
-                }
-                p{
-                    max-width: 80%;
-                    font-size: 14px;
-                    margin-top: 20px;
                 }
             }
-            .footer-content-right{
-                width: 40%;
+
+            .f-content-right{
                 display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                .footer-content-right-1{
-                    width: 30%;
-                    h2{
-                        font-size: 20px;
+                flex-direction: column;
+                gap: 30px;
+                min-width: 200px;
+                .list-icon{
+                    display: flex;
+                    gap: 20px;
+                    .border{
+                        background-color: #FA8A01;
+                        border-radius: 50%;
+                        cursor: pointer;
                     }
-                    p{
-                        font-size: 14px;
-                        margin-top: 20px;
+                    .k-svg-icon{
+                        padding: 5px;
+                        color: white;
+                        width: 16px;
                     }
+
                 }
-                .footer-content-right-2{
-                    width: 30%;
-                    h2{
-                        font-size: 20px;
-                    }
-                    p{
-                        font-size: 14px;
-                        margin-top: 20px;
-                    }
-                }
-                .footer-content-right-3{
-                    width: 30%;
-                    h2{
-                        font-size: 20px;
-                    }
-                    .footer-content-right-3-thirdParty{
-                        margin-top: 20px;
-                        display: flex;
-                        align-items: center;
-                        flex-direction: row;
-                        icon{
-                            width: 20px;
-                            height: 20px;
-                        }
-                        p{
-                            font-size: 14px;
-                            margin-left: 10px;
+                .language{
+                    .k-dropdownlist{
+                        background-color: #FA8A01;
+                        color: white;
+                        .k-input-inner{
+                            .k-input-value-text{
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                                padding: 3px 0px;
+                                .name{
+                                    font-size: 16px;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+
+
         .title{
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;

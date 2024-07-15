@@ -38,7 +38,7 @@
                         left: 90px;
                         font-size: 20px;
                         font-weight: 700;
-                        color: #353535;
+                        color: #FA8A01;
                     }
                 }
                 .item-action{
@@ -69,6 +69,7 @@
                 }
             }
             .user-default{
+                margin-right: 30px;
                 .k-avatar{
                     &:first-child{
                         background-color: white;
@@ -88,7 +89,7 @@
 
 
                 //popup
-                .k-animation-container{
+                .popup-info{
                     .k-popup{
                         border-radius: 15px;
                     .info-user{

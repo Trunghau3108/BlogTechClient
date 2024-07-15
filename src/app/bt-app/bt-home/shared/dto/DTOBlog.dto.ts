@@ -11,4 +11,7 @@ export class DTOBlog {
         isFeatured: boolean = false
         isTrending: boolean = false
         isPopular: boolean = false
+        authorName: string = ''
+        authorEmail: string = ''
+        imageUser: string = ''
     }

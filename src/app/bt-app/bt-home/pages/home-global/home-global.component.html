@@ -7,6 +7,10 @@
     <div class="body">
         <!--region search -->
         <div class="block-searchBlog">
+            <video autoplay loop muted id="background-video">
+                <source src="../../../../../assets/video/background/503196_Keyboard Typing Laptop Blue_By_Arthur_Cauty_Artlist_HD.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             <div class="title">
                 Find Nearby Blogs <span>Celebrity.</span>
             </div>
@@ -22,11 +26,11 @@
                     </kendo-textbox>
                 </div>
                 <div class="item item2">
-                    <kendo-dropdownlist [data]="data" textField="name" valueField="code"
-                        [defaultItem]="{code:null,name:'Select Name'}"></kendo-dropdownlist>
+                    <kendo-dropdownlist [svgIcon]="icons.icDown" [data]="data" textField="name" valueField="code"
+                        [defaultItem]="{code:null,name:'Select Location'}"></kendo-dropdownlist>
                 </div>
                 <div class="item item3">
-                    <kendo-dropdownlist [data]="data" textField="name" valueField="code"
+                    <kendo-dropdownlist [svgIcon]="icons.icDown" [data]="listCategory" textField="name" valueField="id"
                         [defaultItem]="{code:null,name:'All Categories'}"></kendo-dropdownlist>
                 </div>
                 <div class="item item4">
@@ -83,26 +87,27 @@
         <div class="block-blogs">
             <h2>Blog</h2>
             <div class="title">
-                Unlock the Secrets of Ddsgnr
-                with Our Expert Analysis
+                Chia sẻ kiến thức, lan tỏa đam mê qua từng bài viết!
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
             <!-- region firstBlogs -->
             <div class="block-blogs-first">
-                <img src="../../../../../assets/img/toUse/bookInHand.jpg" />
+                <div class="img">
+                    <img [src]="getImg(defaultBlog)"/>
+                </div>
                 <div class="block-blogs-first-content">
                     <div class="block-blogs-first-tittle">
-                        <h1>Business</h1>
+                        <h1>{{defaultBlog.categoryName}}</h1>
                         <h2>
-                            How to Get Any Startup Idea Funded
+                            {{defaultBlog.blogTitle}}
                         </h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                        <p>{{defaultBlog.blogDescription}}</p>
                     </div>
                     <div class="block-blogs-first-account">
                         <img src="../../../../../assets/img/toUse/avatar.jpg" />
                         <div class="block-blogs-first-account-info">
-                            <span>Cristiano Ronaldo</span>
-                            <p>11 Jan 2022 • 5 min read </p>
+                            <span>{{defaultBlog.authorName}}</span>
+                            <p><span>{{defaultBlog.publicationDate | date: 'dd/MM/yyyy hh:mm'}}</span> • {{defaultBlog.categoryID}} min read </p>
                         </div>
                     </div>
                 </div>
@@ -114,7 +119,7 @@
                 <!-- region component posts -->
                 <div class="list-post">
                     <div class="item-post" *ngFor="let item of listFeatured | slice:0:6; index as i">
-                        <img src="../../../../../assets/img/toUse/bookInHand.jpg"/>
+                        <img [src]="getImg(item)"/>
                         <div class="item-content">
                             <div class="status">
                                 <button>{{item.categoryName}}</button>
@@ -153,7 +158,7 @@
                 <div class="list-post">
                     
                     <div class="item-post" *ngFor="let item of listTrending | slice:0:3 ; index as i">
-                            <img src="../../../../../assets/img/toUse/bookInHand.jpg"/>
+                        <img [src]="getImg(item)"/>
                             <div class="item-content">
                                 <div class="status">
                                     <button>{{item.categoryName}}</button>
@@ -188,8 +193,7 @@
 
                 <div class="list-post">
                     <div class="item-post" *ngFor="let item of listPopular | slice:0:3 ; index as i">
-                        <img src="../../../../../assets/img/toUse/bookInHand.jpg"/>
-                        <!-- <img [src]="item.imageThumbnail"/> -->
+                        <img [src]="getImg(item)"/>
                         <div class="item-content">
                             <div class="status">
                                 <button>{{item.categoryName}}</button>
@@ -225,7 +229,9 @@
             </div>
         </div>
         <!-- end -->
-
+        <div [ngClass]="{'show-scroll-to-top': showScrollToTop}" class="scroll-to-top" (click)="scrollToTop()">
+            <kendo-svg-icon [icon]="icons.toTop"></kendo-svg-icon>
+          </div>
     </div>
     <!-- end regionBody -->
 
